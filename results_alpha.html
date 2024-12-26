@@ -107,6 +107,26 @@
             background-color: #082c61;
             transform: scale(1.1);
         }
+
+
+     @media (max-width: 1024px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .content {
+        font-size: 1.1rem;
+    }
+
+    .button {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+    }
+
+    #comparison-graph {
+        height: 400px; /* Adjust height for better visibility */
+    }
+}
     
     </style>
 </head>
@@ -171,6 +191,17 @@
                 };
         
                 // Plot the graph
+
+
+
+                window.addEventListener('resize', () => {
+               Plotly.relayout('comparison-graph', {
+              'xaxis.autorange': true,
+             'yaxis.autorange': true
+    });
+});
+
+
                 Plotly.newPlot('comparison-graph', [trainingTrace, predictionTrace], layout);
             </script>
         </section>
